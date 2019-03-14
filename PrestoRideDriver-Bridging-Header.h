@@ -9,5 +9,6 @@
 #ifndef PrestoRideDriver_Bridging_Header_h
 #define PrestoRideDriver_Bridging_Header_h
 
+#import "FTProgressIndicator.h"
 
 #endif /* PrestoRideDriver_Bridging_Header_h */

@@ -203,11 +203,11 @@ class vechileUpdate: UIViewController , UIImagePickerControllerDelegate , UINavi
             ]
         
         upload(multipartFormData: { (multipartFormData) in
-            multipartFormData.append(UIImageJPEGRepresentation(self.imageViewVehicleImages[0].image!, 0.1)! , withName: "vehicle_img", fileName: "swift_file.jpeg", mimeType: "image/jpeg")
-           multipartFormData.append(UIImageJPEGRepresentation(self.imageViewVehicleImages[1].image!, 0.1)! , withName: "permit", fileName: "swift_file.jpeg", mimeType: "image/jpeg")
-            multipartFormData.append(UIImageJPEGRepresentation(self.imageViewVehicleImages[2].image!, 0.1)! , withName: "registration", fileName: "swift_file.jpeg", mimeType: "image/jpeg")
-            multipartFormData.append(UIImageJPEGRepresentation(self.imageViewVehicleImages[3].image!, 0.1)! , withName: "insurance", fileName: "swift_file.jpeg", mimeType: "image/jpeg")
-            multipartFormData.append(UIImageJPEGRepresentation(self.imageViewVehicleImages[4].image!, 0.1)! , withName: "license_image", fileName: "swift_file.jpeg", mimeType: "image/jpeg")
+            multipartFormData.append(self.imageViewVehicleImages[0].image!.jpegData(compressionQuality: 0.1)! , withName: "vehicle_img", fileName: "swift_file.jpeg", mimeType: "image/jpeg")
+           multipartFormData.append(self.imageViewVehicleImages[1].image!.jpegData(compressionQuality: 0.1)! , withName: "permit", fileName: "swift_file.jpeg", mimeType: "image/jpeg")
+            multipartFormData.append(self.imageViewVehicleImages[2].image!.jpegData(compressionQuality: 0.1)! , withName: "registration", fileName: "swift_file.jpeg", mimeType: "image/jpeg")
+            multipartFormData.append(self.imageViewVehicleImages[3].image!.jpegData(compressionQuality: 0.1)! , withName: "insurance", fileName: "swift_file.jpeg", mimeType: "image/jpeg")
+            multipartFormData.append(self.imageViewVehicleImages[4].image!.jpegData(compressionQuality: 0.1)! , withName: "license_image", fileName: "swift_file.jpeg", mimeType: "image/jpeg")
             
             for (key, value) in parameters
             {
@@ -270,10 +270,13 @@ extension vechileUpdate
         picker.delegate = self
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])
     {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         var chosenImage = UIImage()
-        chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        chosenImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as! UIImage
         imageViewVehicleImages[tagss].image = chosenImage
         dismiss(animated:true, completion: nil) //5
     }
@@ -331,4 +334,14 @@ extension vechileUpdate
             }
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

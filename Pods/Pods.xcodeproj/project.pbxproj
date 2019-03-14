@@ -1,0 +1,1138 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02FB225950EEA73C12B14A3D74A2096E /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A36956C7281BCE84EC8B866DD42269 /* IQUIView+IQKeyboardToolbar.swift */; };
+		15B2DC0ED09BF0B92E4A56A427D4B08C /* Pods-PrestoRideDriver-PrestoRideDriverUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C6F4882873FAE3DC9B528E92079C167 /* Pods-PrestoRideDriver-PrestoRideDriverUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		26AE2D9457261C15A57CEE7EF362A3CE /* Pods-PrestoRideDriver-PrestoRideDriverUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B181E9F739FDA58B0FFF519AB1DFEC4A /* Pods-PrestoRideDriver-PrestoRideDriverUITests-dummy.m */; };
+		2A22CDECF195E3192EBC6DE6259C5C28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AABFE60463C3AF51CB267EA82A0CCF3 /* Foundation.framework */; };
+		30C07F53D870FC78B292E0E4F91FEE9E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C5248F3F8F5DD6FF2489BCA891824D /* QuartzCore.framework */; };
+		36DD0B1007BF3C7BFE352704D5C415F7 /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEFF6963365926A6039BFACC2376F87 /* IQTextView.swift */; };
+		3B048939A5AA6BFB79B3DF5BBA99F3CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AABFE60463C3AF51CB267EA82A0CCF3 /* Foundation.framework */; };
+		4467D1C8AABFA6FC321AC7CD6F327B48 /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5BE23CA13E900222F0A30F06A51476 /* IQUITextFieldView+Additions.swift */; };
+		4596DA56667DA4CD7F1ABA4698DCB30D /* Pods-PrestoRideDriverTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BE28953879BBD7A98DE82133D112C360 /* Pods-PrestoRideDriverTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A3294F2FCFF96D15DA6FD2D5D839788 /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7148DB32D25C8816D706CBFBB300BA46 /* IQUIView+Hierarchy.swift */; };
+		4E3E6EC07A4F261D041BA0C4CA258260 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D5053F2A5215D7472A947EDE5B61B6 /* CoreGraphics.framework */; };
+		5677C54BF14ABA45675F2DEB98AFD0D1 /* IQKeyboardManagerSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 75E9B1AD126ADB0F26FA4DE2C040DB19 /* IQKeyboardManagerSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		633A43974DB81C2CCB1A2C3A7B1BFB37 /* IQKeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9B80F3ED0D2F0D8B31BDFF5603FA0E /* IQKeyboardManager.swift */; };
+		73332244265BD0D05D820A0C54370572 /* Pods-PrestoRideDriver-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3518DEFBEEED2122811369921266FD05 /* Pods-PrestoRideDriver-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		92E9BD908B71CFA1C6EDA2FA86BF1635 /* IQKeyboardManagerSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D59A4B25A6EA7A7DA43270A6944CF3DA /* IQKeyboardManagerSwift-dummy.m */; };
+		986EF56798DE2C7C65737AD9334E517D /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1D9C2EDF1926D0E22372852D781D0D /* IQNSArray+Sort.swift */; };
+		A380ABE3F1AF1CA7A14F9449BDC0B73F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AABFE60463C3AF51CB267EA82A0CCF3 /* Foundation.framework */; };
+		B178B38FCD7F99B07422484FC7FD6861 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B06A199E4410060BCC220C39EE20FAC8 /* IQKeyboardManager.bundle */; };
+		B2A4A7D1BD7C4D59EA0FF0A49163A387 /* IQBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8249C5FC050522AF3DAB8019CCFE1E1 /* IQBarButtonItem.swift */; };
+		B54FBCC03F84F779FE6A15EF0F3512B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AABFE60463C3AF51CB267EA82A0CCF3 /* Foundation.framework */; };
+		B888C49BC46C9A62CBF03A8FAD7126F1 /* IQInvocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D14236F0D4AAEB18BF8F6A2D7BF8A6 /* IQInvocation.swift */; };
+		BA61F495C0E45AA2A88D21D51575FF02 /* IQKeyboardReturnKeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF42D0F67F9ABCABC1D02D20D335B74F /* IQKeyboardReturnKeyHandler.swift */; };
+		CDCC7BABB887917ADA5C4AC4BA9ABFCB /* Pods-PrestoRideDriverTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F83455B8D8856D127DB3E9A886A9149F /* Pods-PrestoRideDriverTests-dummy.m */; };
+		D3A177F9BCAD7042B46E0A36CEDDBF8E /* IQTitleBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F313FAFE7EDB7697A9B06F6ADA089DCE /* IQTitleBarButtonItem.swift */; };
+		D7D49BAE6EAAD5EC2DAF370BCDE783A2 /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B99995538776D78CE4EC1C2CF1C3DD /* IQToolbar.swift */; };
+		D8F4B5841E455F5170B1C2FC30863B05 /* IQKeyboardManagerConstantsInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7A07A68128E267B326ED68E62AF767 /* IQKeyboardManagerConstantsInternal.swift */; };
+		DB50E4F3A44724FDB14949CC6A871E5B /* Pods-PrestoRideDriver-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 810250BA9E09ECACC93F18BAD76985A2 /* Pods-PrestoRideDriver-dummy.m */; };
+		DD420F096096C518F8E6B44583BF6521 /* IQKeyboardManagerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD2672615FF9309B71DCB83375CF2F /* IQKeyboardManagerConstants.swift */; };
+		DDAC963022C8D96EBAAD2284780E0276 /* IQUIScrollView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C5F4B647E95610168C9E65F7C354BD /* IQUIScrollView+Additions.swift */; };
+		E3334CC660C4BD5E41C1061B9DC56FF6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B864BFE95FAE118C4C3A52725C9B261 /* UIKit.framework */; };
+		F0A9F7366B446EDAE4716768BCCADE6C /* IQPreviousNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2AB8FAAF2DC77A9CDA8237FF29FBFC /* IQPreviousNextView.swift */; };
+		F852C0100AB6D9D2CE3E28FCA487C67E /* IQUIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42F3A415446E0159D74719FEC601DE5 /* IQUIViewController+Additions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		658452800A74BCF4FE26D9EDA8BB8FB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA673AB610FC4B18F01C8F4C29377C59;
+			remoteInfo = "Pods-PrestoRideDriver";
+		};
+		6EA4A3219136B058887E5E3AB3FBB710 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFF87187B46551C36797F2B899C54212;
+			remoteInfo = IQKeyboardManagerSwift;
+		};
+		9DB8E515A3AA60F29DDE7808C34AF7EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFF87187B46551C36797F2B899C54212;
+			remoteInfo = IQKeyboardManagerSwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0040EF2F3963CFBED21E5EF2CE699ACE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		062D909630813824D0A08863AB9A99D8 /* IQKeyboardManagerSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IQKeyboardManagerSwift.modulemap; sourceTree = "<group>"; };
+		0674E76706D372BA3EFE0A78A022CB2E /* Pods-PrestoRideDriverTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PrestoRideDriverTests.modulemap"; sourceTree = "<group>"; };
+		070CDB4581E645F6956D0A5AA0A46395 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E6703516EE26548634CE755F86C931E /* GooglePlacePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlacePicker.framework; path = Frameworks/GooglePlacePicker.framework; sourceTree = "<group>"; };
+		0FADB53571938A6A4AB8AC1D0CC77D22 /* Pods-PrestoRideDriverTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PrestoRideDriverTests-resources.sh"; sourceTree = "<group>"; };
+		0FEBEA236B1FF14BF818979632AAE8CC /* Pods-PrestoRideDriverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PrestoRideDriverTests.debug.xcconfig"; sourceTree = "<group>"; };
+		14D957778C3CB8FDFFC565BFAB6BE872 /* Pods-PrestoRideDriver-PrestoRideDriverUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PrestoRideDriver-PrestoRideDriverUITests.release.xcconfig"; sourceTree = "<group>"; };
+		17D5053F2A5215D7472A947EDE5B61B6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		1B864BFE95FAE118C4C3A52725C9B261 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		24390EFD555DD124430DFF9724065945 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		30C5248F3F8F5DD6FF2489BCA891824D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		3353515F4644F93202E62F5E04F36A11 /* Pods-PrestoRideDriver-PrestoRideDriverUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PrestoRideDriver-PrestoRideDriverUITests-resources.sh"; sourceTree = "<group>"; };
+		3518DEFBEEED2122811369921266FD05 /* Pods-PrestoRideDriver-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PrestoRideDriver-umbrella.h"; sourceTree = "<group>"; };
+		37DEE3F1090F8E137FCA8703674B594A /* Pods-PrestoRideDriver-PrestoRideDriverUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PrestoRideDriver-PrestoRideDriverUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3C7A07A68128E267B326ED68E62AF767 /* IQKeyboardManagerConstantsInternal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardManagerConstantsInternal.swift; path = IQKeyboardManagerSwift/Constants/IQKeyboardManagerConstantsInternal.swift; sourceTree = "<group>"; };
+		4AABFE60463C3AF51CB267EA82A0CCF3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		4ACD2672615FF9309B71DCB83375CF2F /* IQKeyboardManagerConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardManagerConstants.swift; path = IQKeyboardManagerSwift/Constants/IQKeyboardManagerConstants.swift; sourceTree = "<group>"; };
+		55436F5FDB0619F93741F86204B3EAB2 /* IQKeyboardManagerSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQKeyboardManagerSwift-prefix.pch"; sourceTree = "<group>"; };
+		57D79D8A3E079CFE0F74F9D3F51820A2 /* IQKeyboardManagerSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IQKeyboardManagerSwift.xcconfig; sourceTree = "<group>"; };
+		5821475EC77744356207048A95C2C5B5 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		5B930EF480930C1D61814FD352C29FF3 /* Pods-PrestoRideDriver-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PrestoRideDriver-frameworks.sh"; sourceTree = "<group>"; };
+		5C6F4882873FAE3DC9B528E92079C167 /* Pods-PrestoRideDriver-PrestoRideDriverUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PrestoRideDriver-PrestoRideDriverUITests-umbrella.h"; sourceTree = "<group>"; };
+		5E07380FE0C39D59CBFD94432B7EA319 /* Pods-PrestoRideDriver-PrestoRideDriverUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PrestoRideDriver-PrestoRideDriverUITests-frameworks.sh"; sourceTree = "<group>"; };
+		60C202BC8A2E7122506278E913115349 /* Pods-PrestoRideDriverTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PrestoRideDriverTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		652948DA252C60F3B614ED5898289124 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
+		6794F11855DBFA42497FD082AA3AB1CE /* Pods-PrestoRideDriver-PrestoRideDriverUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PrestoRideDriver-PrestoRideDriverUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		6A6078E21EACCBB8F83D95A8712AC457 /* Pods-PrestoRideDriver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PrestoRideDriver.debug.xcconfig"; sourceTree = "<group>"; };
+		6EEFC0E614873CBB5E97BBB15583F8F8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7148DB32D25C8816D706CBFBB300BA46 /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIView+Hierarchy.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
+		7274A46FAF2518D4E16A62DC9D65BA00 /* Pods_PrestoRideDriver_PrestoRideDriverUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PrestoRideDriver_PrestoRideDriverUITests.framework; path = "Pods-PrestoRideDriver-PrestoRideDriverUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7492713ACDCC643043260E96BA5469AB /* Pods_PrestoRideDriver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PrestoRideDriver.framework; path = "Pods-PrestoRideDriver.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		75E9B1AD126ADB0F26FA4DE2C040DB19 /* IQKeyboardManagerSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQKeyboardManagerSwift-umbrella.h"; sourceTree = "<group>"; };
+		810250BA9E09ECACC93F18BAD76985A2 /* Pods-PrestoRideDriver-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PrestoRideDriver-dummy.m"; sourceTree = "<group>"; };
+		84C5BAB974B9FA89C5BC528EC630F1D9 /* Pods-PrestoRideDriver-PrestoRideDriverUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PrestoRideDriver-PrestoRideDriverUITests.modulemap"; sourceTree = "<group>"; };
+		8D2AB8FAAF2DC77A9CDA8237FF29FBFC /* IQPreviousNextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQPreviousNextView.swift; path = IQKeyboardManagerSwift/IQToolbar/IQPreviousNextView.swift; sourceTree = "<group>"; };
+		9902018CA3F69959C78F2DA897F6082A /* GooglePlacePicker.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlacePicker.bundle; path = Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle; sourceTree = "<group>"; };
+		9E5656A01825BCF8DABD77B2C286948B /* Pods-PrestoRideDriverTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PrestoRideDriverTests-frameworks.sh"; sourceTree = "<group>"; };
+		A079B59E4102AEDE933F412DE339F24F /* Pods-PrestoRideDriver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PrestoRideDriver.release.xcconfig"; sourceTree = "<group>"; };
+		A61292BAFA47B4521E8E8D305279E1D4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7376CDE10C7E6BE087E166CE1BB42FC /* Pods_PrestoRideDriverTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PrestoRideDriverTests.framework; path = "Pods-PrestoRideDriverTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9E5BD9255F586DE6E46120272355498 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		AA9B80F3ED0D2F0D8B31BDFF5603FA0E /* IQKeyboardManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardManager.swift; path = IQKeyboardManagerSwift/IQKeyboardManager.swift; sourceTree = "<group>"; };
+		AF42D0F67F9ABCABC1D02D20D335B74F /* IQKeyboardReturnKeyHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardReturnKeyHandler.swift; path = IQKeyboardManagerSwift/IQKeyboardReturnKeyHandler.swift; sourceTree = "<group>"; };
+		B06A199E4410060BCC220C39EE20FAC8 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = IQKeyboardManager.bundle; path = IQKeyboardManagerSwift/Resources/IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		B181E9F739FDA58B0FFF519AB1DFEC4A /* Pods-PrestoRideDriver-PrestoRideDriverUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PrestoRideDriver-PrestoRideDriverUITests-dummy.m"; sourceTree = "<group>"; };
+		BAEC2A1DFF953D1EFCF130E039F47E4D /* Pods-PrestoRideDriverTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PrestoRideDriverTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		BC5BE23CA13E900222F0A30F06A51476 /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUITextFieldView+Additions.swift"; path = "IQKeyboardManagerSwift/Categories/IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
+		BE28953879BBD7A98DE82133D112C360 /* Pods-PrestoRideDriverTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PrestoRideDriverTests-umbrella.h"; sourceTree = "<group>"; };
+		C07A5009753586A799E222C0482D70AA /* Pods-PrestoRideDriver-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PrestoRideDriver-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C2A36956C7281BCE84EC8B866DD42269 /* IQUIView+IQKeyboardToolbar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIView+IQKeyboardToolbar.swift"; path = "IQKeyboardManagerSwift/IQToolbar/IQUIView+IQKeyboardToolbar.swift"; sourceTree = "<group>"; };
+		C36EC6C1BFFCE0939E15CBCD114E8D68 /* Pods-PrestoRideDriver.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PrestoRideDriver.modulemap"; sourceTree = "<group>"; };
+		C3D14236F0D4AAEB18BF8F6A2D7BF8A6 /* IQInvocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQInvocation.swift; path = IQKeyboardManagerSwift/IQToolbar/IQInvocation.swift; sourceTree = "<group>"; };
+		C5B99995538776D78CE4EC1C2CF1C3DD /* IQToolbar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQToolbar.swift; path = IQKeyboardManagerSwift/IQToolbar/IQToolbar.swift; sourceTree = "<group>"; };
+		C7CCBFEB7347ECF33F809CA7EBF0A49E /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		D242F39B0FBDCC15F4BE641EF1167013 /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
+		D42F3A415446E0159D74719FEC601DE5 /* IQUIViewController+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIViewController+Additions.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIViewController+Additions.swift"; sourceTree = "<group>"; };
+		D4D0BB8E17DB5C2F35B2C19A1F86B314 /* Pods-PrestoRideDriverTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PrestoRideDriverTests.release.xcconfig"; sourceTree = "<group>"; };
+		D59A4B25A6EA7A7DA43270A6944CF3DA /* IQKeyboardManagerSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IQKeyboardManagerSwift-dummy.m"; sourceTree = "<group>"; };
+		DC645170080E631FC47DA3D1888DCA40 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		DEEFF6963365926A6039BFACC2376F87 /* IQTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQTextView.swift; path = IQKeyboardManagerSwift/IQTextView/IQTextView.swift; sourceTree = "<group>"; };
+		E4C5EE9034E9C1EA8142D03DA4268967 /* Pods-PrestoRideDriver-PrestoRideDriverUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PrestoRideDriver-PrestoRideDriverUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E879D58971AF526D434A983C19D3BFC6 /* Pods-PrestoRideDriver-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PrestoRideDriver-resources.sh"; sourceTree = "<group>"; };
+		EED8B1D09058C3B8D9F2449EA41E63CF /* Pods-PrestoRideDriver-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PrestoRideDriver-acknowledgements.plist"; sourceTree = "<group>"; };
+		F313FAFE7EDB7697A9B06F6ADA089DCE /* IQTitleBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQTitleBarButtonItem.swift; path = IQKeyboardManagerSwift/IQToolbar/IQTitleBarButtonItem.swift; sourceTree = "<group>"; };
+		F446986781C249318D5D0349A04E0EFC /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IQKeyboardManagerSwift.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8249C5FC050522AF3DAB8019CCFE1E1 /* IQBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQBarButtonItem.swift; path = IQKeyboardManagerSwift/IQToolbar/IQBarButtonItem.swift; sourceTree = "<group>"; };
+		F83455B8D8856D127DB3E9A886A9149F /* Pods-PrestoRideDriverTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PrestoRideDriverTests-dummy.m"; sourceTree = "<group>"; };
+		F8C5F4B647E95610168C9E65F7C354BD /* IQUIScrollView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQUIScrollView+Additions.swift"; path = "IQKeyboardManagerSwift/Categories/IQUIScrollView+Additions.swift"; sourceTree = "<group>"; };
+		FE1D9C2EDF1926D0E22372852D781D0D /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQNSArray+Sort.swift"; path = "IQKeyboardManagerSwift/Categories/IQNSArray+Sort.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		80D5C056A22A0F7154EB144130B26641 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B048939A5AA6BFB79B3DF5BBA99F3CD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D03B9E717881020FA8709C3A3182CED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A22CDECF195E3192EBC6DE6259C5C28 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B886D41EF763DE44F455CB7E74E9A560 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E3E6EC07A4F261D041BA0C4CA258260 /* CoreGraphics.framework in Frameworks */,
+				A380ABE3F1AF1CA7A14F9449BDC0B73F /* Foundation.framework in Frameworks */,
+				30C07F53D870FC78B292E0E4F91FEE9E /* QuartzCore.framework in Frameworks */,
+				E3334CC660C4BD5E41C1061B9DC56FF6 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD8D5DC209BD1A3869AF8800C74F7580 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B54FBCC03F84F779FE6A15EF0F3512B3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		300B3BDD9A45B69FA184DB9EB9EF2CAC /* Pods-PrestoRideDriverTests */ = {
+			isa = PBXGroup;
+			children = (
+				0040EF2F3963CFBED21E5EF2CE699ACE /* Info.plist */,
+				0674E76706D372BA3EFE0A78A022CB2E /* Pods-PrestoRideDriverTests.modulemap */,
+				60C202BC8A2E7122506278E913115349 /* Pods-PrestoRideDriverTests-acknowledgements.markdown */,
+				BAEC2A1DFF953D1EFCF130E039F47E4D /* Pods-PrestoRideDriverTests-acknowledgements.plist */,
+				F83455B8D8856D127DB3E9A886A9149F /* Pods-PrestoRideDriverTests-dummy.m */,
+				9E5656A01825BCF8DABD77B2C286948B /* Pods-PrestoRideDriverTests-frameworks.sh */,
+				0FADB53571938A6A4AB8AC1D0CC77D22 /* Pods-PrestoRideDriverTests-resources.sh */,
+				BE28953879BBD7A98DE82133D112C360 /* Pods-PrestoRideDriverTests-umbrella.h */,
+				0FEBEA236B1FF14BF818979632AAE8CC /* Pods-PrestoRideDriverTests.debug.xcconfig */,
+				D4D0BB8E17DB5C2F35B2C19A1F86B314 /* Pods-PrestoRideDriverTests.release.xcconfig */,
+			);
+			name = "Pods-PrestoRideDriverTests";
+			path = "Target Support Files/Pods-PrestoRideDriverTests";
+			sourceTree = "<group>";
+		};
+		36499CF04F539D976D5B5EB30E122861 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7CCBFEB7347ECF33F809CA7EBF0A49E /* GoogleMaps.framework */,
+				A9E5BD9255F586DE6E46120272355498 /* GoogleMapsCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44DF089A6FC75CC35DD56CFBDB7E411C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5821475EC77744356207048A95C2C5B5 /* GoogleMaps.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		484C1339967C13FC90D21E82DA9AD7C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F446986781C249318D5D0349A04E0EFC /* IQKeyboardManagerSwift.framework */,
+				7492713ACDCC643043260E96BA5469AB /* Pods_PrestoRideDriver.framework */,
+				7274A46FAF2518D4E16A62DC9D65BA00 /* Pods_PrestoRideDriver_PrestoRideDriverUITests.framework */,
+				A7376CDE10C7E6BE087E166CE1BB42FC /* Pods_PrestoRideDriverTests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A31A05F3A2817159C40FC59EA74BAA6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9902018CA3F69959C78F2DA897F6082A /* GooglePlacePicker.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		4D2B0A652EADD779F9DEEA9D2244F789 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6EEFC0E614873CBB5E97BBB15583F8F8 /* Info.plist */,
+				062D909630813824D0A08863AB9A99D8 /* IQKeyboardManagerSwift.modulemap */,
+				57D79D8A3E079CFE0F74F9D3F51820A2 /* IQKeyboardManagerSwift.xcconfig */,
+				D59A4B25A6EA7A7DA43270A6944CF3DA /* IQKeyboardManagerSwift-dummy.m */,
+				55436F5FDB0619F93741F86204B3EAB2 /* IQKeyboardManagerSwift-prefix.pch */,
+				75E9B1AD126ADB0F26FA4DE2C040DB19 /* IQKeyboardManagerSwift-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IQKeyboardManagerSwift";
+			sourceTree = "<group>";
+		};
+		4FBD3327F3EA191DEA29A9BC0F11CE5F /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				36499CF04F539D976D5B5EB30E122861 /* Frameworks */,
+				44DF089A6FC75CC35DD56CFBDB7E411C /* Resources */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
+		5052900ACE7ED8B54690CDF361BCA8DD /* GooglePlaces */ = {
+			isa = PBXGroup;
+			children = (
+				CE9076AAD8547E3DC67CE28EEDBFE189 /* Frameworks */,
+				6C7790831BD6E2FFCD8CE41CBE3F82B3 /* Resources */,
+			);
+			name = GooglePlaces;
+			path = GooglePlaces;
+			sourceTree = "<group>";
+		};
+		5651C20DCED550CB8AD1945A0A281AA9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E6703516EE26548634CE755F86C931E /* GooglePlacePicker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		63697B442F96118AC51AEA0BD28D85AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC645170080E631FC47DA3D1888DCA40 /* GoogleMapsBase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C7790831BD6E2FFCD8CE41CBE3F82B3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D242F39B0FBDCC15F4BE641EF1167013 /* GooglePlaces.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		71A17DDB2E9B6B094A84B934BC0DAB10 /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				E4397528525A13ABAA4DA379CCBBD6B2 /* Base */,
+				4FBD3327F3EA191DEA29A9BC0F11CE5F /* Maps */,
+			);
+			name = GoogleMaps;
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		9406EAC9B69B27243A5F9032139F63F8 /* Pods-PrestoRideDriver-PrestoRideDriverUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A61292BAFA47B4521E8E8D305279E1D4 /* Info.plist */,
+				84C5BAB974B9FA89C5BC528EC630F1D9 /* Pods-PrestoRideDriver-PrestoRideDriverUITests.modulemap */,
+				E4C5EE9034E9C1EA8142D03DA4268967 /* Pods-PrestoRideDriver-PrestoRideDriverUITests-acknowledgements.markdown */,
+				6794F11855DBFA42497FD082AA3AB1CE /* Pods-PrestoRideDriver-PrestoRideDriverUITests-acknowledgements.plist */,
+				B181E9F739FDA58B0FFF519AB1DFEC4A /* Pods-PrestoRideDriver-PrestoRideDriverUITests-dummy.m */,
+				5E07380FE0C39D59CBFD94432B7EA319 /* Pods-PrestoRideDriver-PrestoRideDriverUITests-frameworks.sh */,
+				3353515F4644F93202E62F5E04F36A11 /* Pods-PrestoRideDriver-PrestoRideDriverUITests-resources.sh */,
+				5C6F4882873FAE3DC9B528E92079C167 /* Pods-PrestoRideDriver-PrestoRideDriverUITests-umbrella.h */,
+				37DEE3F1090F8E137FCA8703674B594A /* Pods-PrestoRideDriver-PrestoRideDriverUITests.debug.xcconfig */,
+				14D957778C3CB8FDFFC565BFAB6BE872 /* Pods-PrestoRideDriver-PrestoRideDriverUITests.release.xcconfig */,
+			);
+			name = "Pods-PrestoRideDriver-PrestoRideDriverUITests";
+			path = "Target Support Files/Pods-PrestoRideDriver-PrestoRideDriverUITests";
+			sourceTree = "<group>";
+		};
+		A45EE800E04838D4F1F8F07EF1290F14 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				71A17DDB2E9B6B094A84B934BC0DAB10 /* GoogleMaps */,
+				CC487B7AF94CD2265B76D87F68114054 /* GooglePlacePicker */,
+				5052900ACE7ED8B54690CDF361BCA8DD /* GooglePlaces */,
+				A566EF3EDBD263702C598A69C431F7FB /* IQKeyboardManagerSwift */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A566EF3EDBD263702C598A69C431F7FB /* IQKeyboardManagerSwift */ = {
+			isa = PBXGroup;
+			children = (
+				F8249C5FC050522AF3DAB8019CCFE1E1 /* IQBarButtonItem.swift */,
+				C3D14236F0D4AAEB18BF8F6A2D7BF8A6 /* IQInvocation.swift */,
+				AA9B80F3ED0D2F0D8B31BDFF5603FA0E /* IQKeyboardManager.swift */,
+				4ACD2672615FF9309B71DCB83375CF2F /* IQKeyboardManagerConstants.swift */,
+				3C7A07A68128E267B326ED68E62AF767 /* IQKeyboardManagerConstantsInternal.swift */,
+				AF42D0F67F9ABCABC1D02D20D335B74F /* IQKeyboardReturnKeyHandler.swift */,
+				FE1D9C2EDF1926D0E22372852D781D0D /* IQNSArray+Sort.swift */,
+				8D2AB8FAAF2DC77A9CDA8237FF29FBFC /* IQPreviousNextView.swift */,
+				DEEFF6963365926A6039BFACC2376F87 /* IQTextView.swift */,
+				F313FAFE7EDB7697A9B06F6ADA089DCE /* IQTitleBarButtonItem.swift */,
+				C5B99995538776D78CE4EC1C2CF1C3DD /* IQToolbar.swift */,
+				F8C5F4B647E95610168C9E65F7C354BD /* IQUIScrollView+Additions.swift */,
+				BC5BE23CA13E900222F0A30F06A51476 /* IQUITextFieldView+Additions.swift */,
+				7148DB32D25C8816D706CBFBB300BA46 /* IQUIView+Hierarchy.swift */,
+				C2A36956C7281BCE84EC8B866DD42269 /* IQUIView+IQKeyboardToolbar.swift */,
+				D42F3A415446E0159D74719FEC601DE5 /* IQUIViewController+Additions.swift */,
+				E3AE8070F272F1BA2A2B204BCA02DE4F /* Resources */,
+				4D2B0A652EADD779F9DEEA9D2244F789 /* Support Files */,
+			);
+			name = IQKeyboardManagerSwift;
+			path = IQKeyboardManagerSwift;
+			sourceTree = "<group>";
+		};
+		B41F094DE49D2EDFBCAB9F4B137B862B /* Pods-PrestoRideDriver */ = {
+			isa = PBXGroup;
+			children = (
+				070CDB4581E645F6956D0A5AA0A46395 /* Info.plist */,
+				C36EC6C1BFFCE0939E15CBCD114E8D68 /* Pods-PrestoRideDriver.modulemap */,
+				C07A5009753586A799E222C0482D70AA /* Pods-PrestoRideDriver-acknowledgements.markdown */,
+				EED8B1D09058C3B8D9F2449EA41E63CF /* Pods-PrestoRideDriver-acknowledgements.plist */,
+				810250BA9E09ECACC93F18BAD76985A2 /* Pods-PrestoRideDriver-dummy.m */,
+				5B930EF480930C1D61814FD352C29FF3 /* Pods-PrestoRideDriver-frameworks.sh */,
+				E879D58971AF526D434A983C19D3BFC6 /* Pods-PrestoRideDriver-resources.sh */,
+				3518DEFBEEED2122811369921266FD05 /* Pods-PrestoRideDriver-umbrella.h */,
+				6A6078E21EACCBB8F83D95A8712AC457 /* Pods-PrestoRideDriver.debug.xcconfig */,
+				A079B59E4102AEDE933F412DE339F24F /* Pods-PrestoRideDriver.release.xcconfig */,
+			);
+			name = "Pods-PrestoRideDriver";
+			path = "Target Support Files/Pods-PrestoRideDriver";
+			sourceTree = "<group>";
+		};
+		BA4F31F07263C99FC76E66D632A59F09 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD35F57B08FA07466EF52BE52CC46A1D /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC487B7AF94CD2265B76D87F68114054 /* GooglePlacePicker */ = {
+			isa = PBXGroup;
+			children = (
+				5651C20DCED550CB8AD1945A0A281AA9 /* Frameworks */,
+				4A31A05F3A2817159C40FC59EA74BAA6 /* Resources */,
+			);
+			name = GooglePlacePicker;
+			path = GooglePlacePicker;
+			sourceTree = "<group>";
+		};
+		CE9076AAD8547E3DC67CE28EEDBFE189 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				652948DA252C60F3B614ED5898289124 /* GooglePlaces.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				24390EFD555DD124430DFF9724065945 /* Podfile */,
+				BA4F31F07263C99FC76E66D632A59F09 /* Frameworks */,
+				A45EE800E04838D4F1F8F07EF1290F14 /* Pods */,
+				484C1339967C13FC90D21E82DA9AD7C8 /* Products */,
+				EB273801CA001673AE865940FF8B491E /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		DD35F57B08FA07466EF52BE52CC46A1D /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				17D5053F2A5215D7472A947EDE5B61B6 /* CoreGraphics.framework */,
+				4AABFE60463C3AF51CB267EA82A0CCF3 /* Foundation.framework */,
+				30C5248F3F8F5DD6FF2489BCA891824D /* QuartzCore.framework */,
+				1B864BFE95FAE118C4C3A52725C9B261 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E3AE8070F272F1BA2A2B204BCA02DE4F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B06A199E4410060BCC220C39EE20FAC8 /* IQKeyboardManager.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		E4397528525A13ABAA4DA379CCBBD6B2 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				63697B442F96118AC51AEA0BD28D85AD /* Frameworks */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		EB273801CA001673AE865940FF8B491E /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B41F094DE49D2EDFBCAB9F4B137B862B /* Pods-PrestoRideDriver */,
+				9406EAC9B69B27243A5F9032139F63F8 /* Pods-PrestoRideDriver-PrestoRideDriverUITests */,
+				300B3BDD9A45B69FA184DB9EB9EF2CAC /* Pods-PrestoRideDriverTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1E0F90A08EAA38717005F285DEF0BF6B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15B2DC0ED09BF0B92E4A56A427D4B08C /* Pods-PrestoRideDriver-PrestoRideDriverUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26BFC6E64302AD71C29A3250A9502C2B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4596DA56667DA4CD7F1ABA4698DCB30D /* Pods-PrestoRideDriverTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5016D14067ED2C09AB6D574298F7A7E8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73332244265BD0D05D820A0C54370572 /* Pods-PrestoRideDriver-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FD2C029FC627D78FBEBD0C3829ACA56 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5677C54BF14ABA45675F2DEB98AFD0D1 /* IQKeyboardManagerSwift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		466E5C2E513A086A7DB0E162B573CBAC /* Pods-PrestoRideDriver-PrestoRideDriverUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 747053CDC8D61F43670B8FE1A700BA49 /* Build configuration list for PBXNativeTarget "Pods-PrestoRideDriver-PrestoRideDriverUITests" */;
+			buildPhases = (
+				1E0F90A08EAA38717005F285DEF0BF6B /* Headers */,
+				C6F663E1C908EFEC7526ED7AF3C0BFCB /* Sources */,
+				80D5C056A22A0F7154EB144130B26641 /* Frameworks */,
+				05F172E2761289CC82EA78A320B36216 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0F0CDC95EA5ECB0FDD5607AFDD9FB457 /* PBXTargetDependency */,
+			);
+			name = "Pods-PrestoRideDriver-PrestoRideDriverUITests";
+			productName = "Pods-PrestoRideDriver-PrestoRideDriverUITests";
+			productReference = 7274A46FAF2518D4E16A62DC9D65BA00 /* Pods_PrestoRideDriver_PrestoRideDriverUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CCE55FA3DE4E2B99A491353932569DEF /* Pods-PrestoRideDriverTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F788945882842A480DE94B07CF2CD8DF /* Build configuration list for PBXNativeTarget "Pods-PrestoRideDriverTests" */;
+			buildPhases = (
+				26BFC6E64302AD71C29A3250A9502C2B /* Headers */,
+				E03B26C1A7C0BC9CA7003584D7101C0E /* Sources */,
+				8D03B9E717881020FA8709C3A3182CED /* Frameworks */,
+				DD5BD50F99ADDCC329C9FC89BA095FD8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8EF344CD77BB6BB4B838E48206F1BC90 /* PBXTargetDependency */,
+			);
+			name = "Pods-PrestoRideDriverTests";
+			productName = "Pods-PrestoRideDriverTests";
+			productReference = A7376CDE10C7E6BE087E166CE1BB42FC /* Pods_PrestoRideDriverTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DA673AB610FC4B18F01C8F4C29377C59 /* Pods-PrestoRideDriver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C470DA47F84709DBD84D6BB91CB7DFA9 /* Build configuration list for PBXNativeTarget "Pods-PrestoRideDriver" */;
+			buildPhases = (
+				5016D14067ED2C09AB6D574298F7A7E8 /* Headers */,
+				58CE259152297A62632F05A13A3DE77A /* Sources */,
+				FD8D5DC209BD1A3869AF8800C74F7580 /* Frameworks */,
+				A8C95D2F1486893262501ABF6E7001DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1322BB45C09829FF835E3A9C1C4503E /* PBXTargetDependency */,
+			);
+			name = "Pods-PrestoRideDriver";
+			productName = "Pods-PrestoRideDriver";
+			productReference = 7492713ACDCC643043260E96BA5469AB /* Pods_PrestoRideDriver.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EFF87187B46551C36797F2B899C54212 /* IQKeyboardManagerSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B91B77FBB13EFD33FB1AE6F88ABA7C5 /* Build configuration list for PBXNativeTarget "IQKeyboardManagerSwift" */;
+			buildPhases = (
+				5FD2C029FC627D78FBEBD0C3829ACA56 /* Headers */,
+				50CEEDE322708ABF7722F6D79CCF256B /* Sources */,
+				B886D41EF763DE44F455CB7E74E9A560 /* Frameworks */,
+				DC94709994DB7B9EF675DAE0DB5045E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IQKeyboardManagerSwift;
+			productName = IQKeyboardManagerSwift;
+			productReference = F446986781C249318D5D0349A04E0EFC /* IQKeyboardManagerSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 484C1339967C13FC90D21E82DA9AD7C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EFF87187B46551C36797F2B899C54212 /* IQKeyboardManagerSwift */,
+				DA673AB610FC4B18F01C8F4C29377C59 /* Pods-PrestoRideDriver */,
+				466E5C2E513A086A7DB0E162B573CBAC /* Pods-PrestoRideDriver-PrestoRideDriverUITests */,
+				CCE55FA3DE4E2B99A491353932569DEF /* Pods-PrestoRideDriverTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05F172E2761289CC82EA78A320B36216 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8C95D2F1486893262501ABF6E7001DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC94709994DB7B9EF675DAE0DB5045E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B178B38FCD7F99B07422484FC7FD6861 /* IQKeyboardManager.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD5BD50F99ADDCC329C9FC89BA095FD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		50CEEDE322708ABF7722F6D79CCF256B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2A4A7D1BD7C4D59EA0FF0A49163A387 /* IQBarButtonItem.swift in Sources */,
+				B888C49BC46C9A62CBF03A8FAD7126F1 /* IQInvocation.swift in Sources */,
+				633A43974DB81C2CCB1A2C3A7B1BFB37 /* IQKeyboardManager.swift in Sources */,
+				DD420F096096C518F8E6B44583BF6521 /* IQKeyboardManagerConstants.swift in Sources */,
+				D8F4B5841E455F5170B1C2FC30863B05 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
+				92E9BD908B71CFA1C6EDA2FA86BF1635 /* IQKeyboardManagerSwift-dummy.m in Sources */,
+				BA61F495C0E45AA2A88D21D51575FF02 /* IQKeyboardReturnKeyHandler.swift in Sources */,
+				986EF56798DE2C7C65737AD9334E517D /* IQNSArray+Sort.swift in Sources */,
+				F0A9F7366B446EDAE4716768BCCADE6C /* IQPreviousNextView.swift in Sources */,
+				36DD0B1007BF3C7BFE352704D5C415F7 /* IQTextView.swift in Sources */,
+				D3A177F9BCAD7042B46E0A36CEDDBF8E /* IQTitleBarButtonItem.swift in Sources */,
+				D7D49BAE6EAAD5EC2DAF370BCDE783A2 /* IQToolbar.swift in Sources */,
+				DDAC963022C8D96EBAAD2284780E0276 /* IQUIScrollView+Additions.swift in Sources */,
+				4467D1C8AABFA6FC321AC7CD6F327B48 /* IQUITextFieldView+Additions.swift in Sources */,
+				4A3294F2FCFF96D15DA6FD2D5D839788 /* IQUIView+Hierarchy.swift in Sources */,
+				02FB225950EEA73C12B14A3D74A2096E /* IQUIView+IQKeyboardToolbar.swift in Sources */,
+				F852C0100AB6D9D2CE3E28FCA487C67E /* IQUIViewController+Additions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58CE259152297A62632F05A13A3DE77A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB50E4F3A44724FDB14949CC6A871E5B /* Pods-PrestoRideDriver-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6F663E1C908EFEC7526ED7AF3C0BFCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26AE2D9457261C15A57CEE7EF362A3CE /* Pods-PrestoRideDriver-PrestoRideDriverUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E03B26C1A7C0BC9CA7003584D7101C0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDCC7BABB887917ADA5C4AC4BA9ABFCB /* Pods-PrestoRideDriverTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0F0CDC95EA5ECB0FDD5607AFDD9FB457 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IQKeyboardManagerSwift;
+			target = EFF87187B46551C36797F2B899C54212 /* IQKeyboardManagerSwift */;
+			targetProxy = 9DB8E515A3AA60F29DDE7808C34AF7EC /* PBXContainerItemProxy */;
+		};
+		8EF344CD77BB6BB4B838E48206F1BC90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-PrestoRideDriver";
+			target = DA673AB610FC4B18F01C8F4C29377C59 /* Pods-PrestoRideDriver */;
+			targetProxy = 658452800A74BCF4FE26D9EDA8BB8FB6 /* PBXContainerItemProxy */;
+		};
+		E1322BB45C09829FF835E3A9C1C4503E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IQKeyboardManagerSwift;
+			target = EFF87187B46551C36797F2B899C54212 /* IQKeyboardManagerSwift */;
+			targetProxy = 6EA4A3219136B058887E5E3AB3FBB710 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0278004C005EBA850426ECFA344ACBB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57D79D8A3E079CFE0F74F9D3F51820A2 /* IQKeyboardManagerSwift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IQKeyboardManagerSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift.modulemap";
+				PRODUCT_MODULE_NAME = IQKeyboardManagerSwift;
+				PRODUCT_NAME = IQKeyboardManagerSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1001B3A5DF7C963DD8D52CA37BE5E944 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4D0BB8E17DB5C2F35B2C19A1F86B314 /* Pods-PrestoRideDriverTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PrestoRideDriverTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PrestoRideDriverTests/Pods-PrestoRideDriverTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		20879250A1C7463BE9DCA53C3A0C4132 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14D957778C3CB8FDFFC565BFAB6BE872 /* Pods-PrestoRideDriver-PrestoRideDriverUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PrestoRideDriver-PrestoRideDriverUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PrestoRideDriver-PrestoRideDriverUITests/Pods-PrestoRideDriver-PrestoRideDriverUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2E4C82333FBD120E867EAE114BE9E59E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37DEE3F1090F8E137FCA8703674B594A /* Pods-PrestoRideDriver-PrestoRideDriverUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PrestoRideDriver-PrestoRideDriverUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PrestoRideDriver-PrestoRideDriverUITests/Pods-PrestoRideDriver-PrestoRideDriverUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3073E9329E3D859060CB4B679A6C557C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		538EF6E5657F480368CCF0D80C59196F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57D79D8A3E079CFE0F74F9D3F51820A2 /* IQKeyboardManagerSwift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IQKeyboardManagerSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift.modulemap";
+				PRODUCT_MODULE_NAME = IQKeyboardManagerSwift;
+				PRODUCT_NAME = IQKeyboardManagerSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7486D2D11DDD5C15B04BBA8A3D2570B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A079B59E4102AEDE933F412DE339F24F /* Pods-PrestoRideDriver.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PrestoRideDriver/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PrestoRideDriver/Pods-PrestoRideDriver.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A3B814FE6F689064D3D91E7049121B61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FEBEA236B1FF14BF818979632AAE8CC /* Pods-PrestoRideDriverTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PrestoRideDriverTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PrestoRideDriverTests/Pods-PrestoRideDriverTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DE6F9A2F1D736559DC049EFC6EDBC40F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A6078E21EACCBB8F83D95A8712AC457 /* Pods-PrestoRideDriver.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PrestoRideDriver/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PrestoRideDriver/Pods-PrestoRideDriver.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E728C0BD3857BC99A5D2AD6ACDFBA09A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B91B77FBB13EFD33FB1AE6F88ABA7C5 /* Build configuration list for PBXNativeTarget "IQKeyboardManagerSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				538EF6E5657F480368CCF0D80C59196F /* Debug */,
+				0278004C005EBA850426ECFA344ACBB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E728C0BD3857BC99A5D2AD6ACDFBA09A /* Debug */,
+				3073E9329E3D859060CB4B679A6C557C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		747053CDC8D61F43670B8FE1A700BA49 /* Build configuration list for PBXNativeTarget "Pods-PrestoRideDriver-PrestoRideDriverUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E4C82333FBD120E867EAE114BE9E59E /* Debug */,
+				20879250A1C7463BE9DCA53C3A0C4132 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C470DA47F84709DBD84D6BB91CB7DFA9 /* Build configuration list for PBXNativeTarget "Pods-PrestoRideDriver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE6F9A2F1D736559DC049EFC6EDBC40F /* Debug */,
+				7486D2D11DDD5C15B04BBA8A3D2570B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F788945882842A480DE94B07CF2CD8DF /* Build configuration list for PBXNativeTarget "Pods-PrestoRideDriverTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3B814FE6F689064D3D91E7049121B61 /* Debug */,
+				1001B3A5DF7C963DD8D52CA37BE5E944 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

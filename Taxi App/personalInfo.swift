@@ -103,7 +103,7 @@ extension Profile
         
         upload(multipartFormData: { (multipartFormData) in
             
-            multipartFormData.append(UIImageJPEGRepresentation(self.imageviewUserProfile.image!, 0.1)!, withName: "driver_img", fileName: "swift_file.jpeg", mimeType: "image/jpeg")
+            multipartFormData.append(self.imageviewUserProfile.image!.jpegData(compressionQuality: 0.1)!, withName: "driver_img", fileName: "swift_file.jpeg", mimeType: "image/jpeg")
          
             
             for (key, value) in parameters
@@ -120,7 +120,7 @@ extension Profile
                     {
                         response in
                         
-                        let json = JSON(response.result.value)
+                        let json = JSON(response.result.value!)
                         
                         if json["result"].int == 1
                         {
@@ -162,10 +162,13 @@ extension Profile
         picker.delegate = self
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])
     {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         var chosenImage = UIImage()
-        chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
+        chosenImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as! UIImage //2
         self.imageviewUserProfile.image = chosenImage
         
         dismiss(animated:true, completion: nil) //5
@@ -183,13 +186,13 @@ extension Profile : UITextFieldDelegate
     
    func deligatesDIdload()
    {
-     NotificationCenter.default.addObserver(self, selector: #selector(Profile.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-     NotificationCenter.default.addObserver(self, selector: #selector(Profile.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+     NotificationCenter.default.addObserver(self, selector: #selector(Profile.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+     NotificationCenter.default.addObserver(self, selector: #selector(Profile.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
    }
     
-   func keyboardWillShow(notification: NSNotification) {
+   @objc func keyboardWillShow(notification: NSNotification) {
         
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0{
                 self.view.frame.origin.y -= keyboardSize.height
             }
@@ -198,8 +201,8 @@ extension Profile : UITextFieldDelegate
     }
     
    
-    func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y != 0{
                 self.view.frame.origin.y += keyboardSize.height
             }
@@ -241,3 +244,13 @@ extension Profile : UITextFieldDelegate
 
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
+}

@@ -6,8 +6,6 @@
 //  Copyright © 2017 User. All rights reserved.
 //
 
-#ifndef Header_h
-#define Header_h
 
+#import "FTProgressIndicator.h"
 
-#endif /* Header_h */

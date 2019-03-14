@@ -22,7 +22,7 @@ extension BaseViewController
         updateLatLong.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(update), userInfo: nil, repeats: true)
       }
     
-      func update()
+      @objc func update()
       {
         DispatchQueue.global(qos: .background).async {
         let parameters =

@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import Taxi_App
 
 class Taxi_AppTests: XCTestCase {
     

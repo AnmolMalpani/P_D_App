@@ -1,0 +1,6 @@
+framework module Pods_PrestoRideDriver_PrestoRideDriverUITests {
+  umbrella header "Pods-PrestoRideDriver-PrestoRideDriverUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

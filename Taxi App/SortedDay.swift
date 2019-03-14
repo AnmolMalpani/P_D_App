@@ -140,7 +140,7 @@ class SortedDay: UITableViewController {
         
         let label = UILabel()
         
-        label.font          = UIFont.systemFont(ofSize: 14, weight: UIFontWeightSemibold)
+        label.font          = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.semibold)
         label.textAlignment = NSTextAlignment.center
         label.textColor     = UIColor.black
         label.text          = "Date"
@@ -160,7 +160,7 @@ class SortedDay: UITableViewController {
         
         let label1 = UILabel()
         
-        label1.font          = UIFont.systemFont(ofSize: 14, weight: UIFontWeightSemibold)
+        label1.font          = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.semibold)
         label1.textAlignment = NSTextAlignment.center
         label1.textColor     = UIColor.black
         label1.text          = "Amount"

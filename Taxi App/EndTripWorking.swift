@@ -18,7 +18,7 @@ extension BaseViewController
         endTripWorking.tripTime = Timer.scheduledTimer(timeInterval: TimeInterval(60), target: self, selector: #selector(calculationOfTime), userInfo: nil, repeats: true)
     }
     
-    func calculationOfTime()
+    @objc func calculationOfTime()
     {
         endTripWorking.minutes = endTripWorking.minutes + 1
        

@@ -112,9 +112,9 @@ class Rewards : UIViewController , UITableViewDelegate , UITableViewDataSource
             
             let titleFont = UIFont.boldSystemFont(ofSize: 15)
             let title = NSMutableAttributedString(string: "Month",
-                                                  attributes: [NSFontAttributeName:titleFont,
-                                                               NSForegroundColorAttributeName:UIColor.black,
-                                                               NSParagraphStyleAttributeName: titleParagraphStyle])
+                                                  attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font):titleFont,
+                                                               convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor):UIColor.black,
+                                                               convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): titleParagraphStyle]))
             
             cell.textAllRewards[0].attributedText = title
             
@@ -122,9 +122,9 @@ class Rewards : UIViewController , UITableViewDelegate , UITableViewDataSource
             titleParagraphStyle1.alignment = .center
             
             let title1 = NSMutableAttributedString(string: "Trips",
-                                                   attributes: [NSFontAttributeName:titleFont,
-                                                                NSForegroundColorAttributeName:UIColor.black,
-                                                                NSParagraphStyleAttributeName: titleParagraphStyle1])
+                                                   attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font):titleFont,
+                                                                convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor):UIColor.black,
+                                                                convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): titleParagraphStyle1]))
             
             cell.textAllRewards[1].attributedText = title1
             
@@ -132,9 +132,9 @@ class Rewards : UIViewController , UITableViewDelegate , UITableViewDataSource
             titleParagraphStyle2.alignment = .center
             
             let title2 = NSMutableAttributedString(string: "Total",
-                                                   attributes: [NSFontAttributeName:titleFont,
-                                                                NSForegroundColorAttributeName:UIColor.black,
-                                                                NSParagraphStyleAttributeName: titleParagraphStyle2])
+                                                   attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font):titleFont,
+                                                                convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor):UIColor.black,
+                                                                convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): titleParagraphStyle2]))
             
             cell.textAllRewards[2].attributedText = title2
             
@@ -218,4 +218,15 @@ class RewardsCell: UITableViewCell
         super.awakeFromNib()
  
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }

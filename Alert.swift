@@ -17,8 +17,8 @@ class roundLabelPickUpAlert: UILabel
         self.layer.cornerRadius = 60
     }
 }
-    extension BaseViewController
-    {
+extension BaseViewController
+{
     func alertDidLoad()
     {
         mapTask.timerForGettingResponse.invalidate()
@@ -26,7 +26,7 @@ class roundLabelPickUpAlert: UILabel
         mapTask.responseStopper = 0
     }
     
-    func gettingResponse()
+    @objc func gettingResponse()
     {
         ///ANK
         requestManual("\(Global.DomainName)/booking/getrequest/driver/\(Global.driverCurrentId)/\(mapTask.driverCurrentLocation.position.latitude)/\(mapTask.driverCurrentLocation.position.longitude)", method: .get).responseJSON{ response in
@@ -39,12 +39,10 @@ class roundLabelPickUpAlert: UILabel
                     let json = JSON(value)    
                     
                     if json["result"].int == 1
-                    {
-                         LocalNotification.dispatchlocalNotification(with: "Presto Driver", body: "Yoy have a ride request", at: Date().addingTimeInterval(5))
-                      
+                    {                      
                         scheduleNotifications()
                         registerForRichNotifications()
-//                        self.playSound()
+                        self.playSound()
                         mapTask.timerForGettingResponse.invalidate()
                         mapTask.responseStopper = 5
                         
@@ -62,10 +60,9 @@ class roundLabelPickUpAlert: UILabel
                             self.labelPassengerPopUp.text = dataArray["passengers"].string ?? "1"
                             self.labelLaguage.text = dataArray["luggage"].string ?? "0"
                             self.textfare.text = "$" + String(describing : dataArray["approximate_price"])
-                           
+                            
                             //END
-                           if String(describing : dataArray["booking_type"]) == "instant booking"
-                            {
+                            if String(describing : dataArray["booking_type"]) == "instant booking" {
                                 self.dropAddress.isHidden = true
                                 self.textdropAddress.isHidden = true
                                 self.fare.isHidden          = true
@@ -79,14 +76,12 @@ class roundLabelPickUpAlert: UILabel
                                 self.Labeltitle.text = "Distance to Pickup"
                                 self.labelDistance.text = "\(mapTask.distance) Miles"
                                 mapTask.isInstantBooking = true
-                            }
-                            else
-                            {
+                            } else {
                                 self.dropAddress.isHidden = false
                                 self.fare.isHidden = false
                                 self.textdropAddress.isHidden    = false
                                 self.textfare.isHidden = false
-                            
+                                
                                 mapTask.isInstantBooking = false
                                 self.Labeltitle.text = "Pickup Time"
                                 self.labelDistance.text = "\(mapTask.distance)"
@@ -100,57 +95,54 @@ class roundLabelPickUpAlert: UILabel
             }
         }
     }
-        
-        // audioPlayer Method...
-        
-        func playSound() {
-            var player: AVAudioPlayer?
-            guard let url = Bundle.main.url(forResource: "carina (1).mp3", withExtension: "mp3") else { return }
-            
-            do {
-                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-                try AVAudioSession.sharedInstance().setActive(true)
-            
-                /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
-                player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3)
-                
-                /* iOS 10 and earlier require the following line:
-                 player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
-                
-                guard let player = player else { return }
-                
-                player.play()
-                
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        }
-
-        func ifResponseGett()
-        {
-            mapTask.intForHandleTimer = 30
-            textPickUpAddress.text = mapTask.pickUpAddress
-            textdropAddress.text = mapTask.dropAddress
-            textPickUpAddress.textAlignment = .center
-            textPickUpAddress.textColor = UIColor.white
-            textdropAddress.textAlignment = .center
-            textdropAddress.textColor = UIColor.white
-            
-            viewPickUpAlert.isHidden = false
-            mapTask.timerForHandleLabelInt.invalidate()
-            mapTask.timerForHandleLabelInt = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ShowPopUp), userInfo: nil, repeats: true)
-        }
     
-    func ShowPopUp()
-    {
+    // audioPlayer Method...
+    
+    func playSound() {
+        guard let url = Bundle.main.url(forResource: "carina", withExtension: "mp3") else { return }
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category(rawValue: convertFromAVAudioSessionCategory(AVAudioSession.Category.playback)), mode: AVAudioSession.Mode.default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: convertFromAVFileType(AVFileType.mp3))
+            guard let _ = player else { return }
+            self.player?.numberOfLoops = -1
+            self.player!.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    @objc func playerDidFinishPlaying(note: NSNotification) {
+        // Your code here
+        print(note)
+    }
+    
+    func ifResponseGett() {
+        mapTask.intForHandleTimer = 30
+        textPickUpAddress.text = mapTask.pickUpAddress
+        textdropAddress.text = mapTask.dropAddress
+        textPickUpAddress.textAlignment = .center
+        textPickUpAddress.textColor = UIColor.white
+        textdropAddress.textAlignment = .center
+        textdropAddress.textColor = UIColor.white
+        
+        viewPickUpAlert.isHidden = false
+        mapTask.timerForHandleLabelInt.invalidate()
+        mapTask.timerForHandleLabelInt = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ShowPopUp), userInfo: nil, repeats: true)
+    }
+    
+    @objc func ShowPopUp() {
         labelTimer.text = String(mapTask.intForHandleTimer)
-        if labelTimer.text != "0"
-        {
+        if labelTimer.text != "0" {
             mapTask.intForHandleTimer = mapTask.intForHandleTimer - 1
         }
-        else
-        {
+        else {
             mapTask.timerForHandleLabelInt.invalidate()
+            guard let _ = player else { return }
+            if (player?.isPlaying)! {
+                player?.stop()
+            }
             viewPickUpAlert.isHidden = true
             mapTask.statusForUpload = "1"
             self.updateStatusToServer()
@@ -159,8 +151,7 @@ class roundLabelPickUpAlert: UILabel
     
     // After Alert Working :-
     
-    func funcButtonAccept()
-    {
+    func funcButtonAccept() {
         mapTask.timerForHandleLabelInt.invalidate()
         viewPickUpAlert.isHidden = true
         mapTask.statusForUpload = "2"
@@ -175,7 +166,7 @@ class roundLabelPickUpAlert: UILabel
             [
                 "id": mapTask.idForGetSend,
                 "status" : mapTask.statusForUpload
-            ]
+        ]
         
         upload(multipartFormData: { (multipartFormData) in
             
@@ -183,7 +174,7 @@ class roundLabelPickUpAlert: UILabel
             {
                 multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
             }
-            }, to:"\(Global.DomainName)/booking/editrequest".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+        }, to:"\(Global.DomainName)/booking/editrequest".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
         { (result) in
             switch result {
             case .success(let upload, _, _):
@@ -191,47 +182,45 @@ class roundLabelPickUpAlert: UILabel
                 upload.responseJSON { response in
                     
                     let json = JSON(data : response.data!)
-                    
-                    if json["result"].int == 1
-                    {
-                        if mapTask.statusForUpload == "1"
-                        {
+                    if json["result"].int == 1 {
+                        if mapTask.statusForUpload == "1" {
                             endTripWorking.DEINIT()
                             afterAcceptedTask.DEINIT()
                             mapTask.DEINIT()
                             self.alertDidLoad()
+                        } else if mapTask.statusForUpload == "2" {
+                            if mapTask.isInstantBooking == true {
+                                //                                    self.Spinner(Task: 1, tag: 78544)
+                                self.getUserData()
+                            } else {
+                                print("This is a prebooking")
+                                endTripWorking.DEINIT()
+                                afterAcceptedTask.DEINIT()
+                                mapTask.DEINIT()
+                                self.alertDidLoad()
+                            }
                         }
-                        else
-                            if mapTask.statusForUpload == "2"
-                            {
-                             if mapTask.isInstantBooking == true
-                            {
-//                                    self.Spinner(Task: 1, tag: 78544)
-                                    self.getUserData()
-                            }
-                            else
-                            {
-                                    print("This is a prebooking")
-                                    endTripWorking.DEINIT()
-                                    afterAcceptedTask.DEINIT()
-                                    mapTask.DEINIT()
-                                    self.alertDidLoad()
-                            }
-                            }
-                            }
-                      else
-                      {
+                    } else {
                         endTripWorking.DEINIT()
                         afterAcceptedTask.DEINIT()
                         mapTask.DEINIT()
                         self.alertDidLoad()
-                      }
-                      }
-             case .failure(_):
-            print("Error in updating data")
-      }
+                    }
+                }
+            case .failure(_):
+                print("Error in updating data")
+            }
         }
-    }   
-    
+    }
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVFileType(_ input: AVFileType) -> String {
+	return input.rawValue
+}

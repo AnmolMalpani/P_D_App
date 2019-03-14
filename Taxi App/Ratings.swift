@@ -30,7 +30,7 @@ class Ratings: UITableViewController {
         getData()
         
         tableView.estimatedRowHeight = 40
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         
     }
     
@@ -144,7 +144,7 @@ class Ratings: UITableViewController {
         
         let label = UILabel()
         
-        label.font          = UIFont.systemFont(ofSize: 14, weight: UIFontWeightSemibold)
+        label.font          = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.semibold)
         label.textAlignment = NSTextAlignment.center
         label.textColor     = UIColor.white
         label.backgroundColor = UIColor.darkGray

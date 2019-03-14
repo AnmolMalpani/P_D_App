@@ -19,7 +19,7 @@ import GoogleMaps
 
 extension Pre_Order
 {
-    func RideNowClicked(_ sender : UIButton)
+    @objc func RideNowClicked(_ sender : UIButton)
     {
         PreBookingTask.isForPrebooking = true
         PreBookingTask.formattedIdNeedToSend = data[sender.tag].formattedId
@@ -31,31 +31,32 @@ extension Pre_Order
                 "pickLong": data[sender.tag].pickLong,
                 "dropLat" : data[sender.tag].dropLat,
                 "dropLong" : data[sender.tag].dropLong,
-            ]
-        
+        ]
         if PreBookingTask.formattedIdNeedToSend != "" && PreBookingTask.bookingIdNeedToSend != "" && PreBookingTask.latLongAll != [:]
         {
+            NotificationCenter.default.post(name: NSNotification.Name("RAMBAAN"), object: nil)
             _ = self.navigationController?.popViewController(animated: true)
         }
-        }
+    }
 }
 
 extension Recent_Order
 {
-    func RideNowClicked(_ sender: UIButton)
+    @objc func RideNowClicked(_ sender: UIButton)
     {
         InstantBookingTask.isForInstantBooking = true
         InstantBookingTask.formattedIdNeedToSend = data[ sender.tag].formattedId
         InstantBookingTask.bookingIdNeedToSend = data[sender.tag].bookingId
         InstantBookingTask.phone = data[sender.tag].Phone
         InstantBookingTask.latLongAll =
-        [
-            "pickLat" : data[sender.tag].pickLat,
-            "pickLong": data[sender.tag].pickLong,
-            "dropLat" : data[sender.tag].dropLat,
-            "dropLong" : data[sender.tag].dropLong,
+            [
+                "pickLat" : data[sender.tag].pickLat,
+                "pickLong": data[sender.tag].pickLong,
+                "dropLat" : data[sender.tag].dropLat,
+                "dropLong" : data[sender.tag].dropLong,
         ]
         if InstantBookingTask.formattedIdNeedToSend != "" && InstantBookingTask.bookingIdNeedToSend != "" && InstantBookingTask.latLongAll != [:] {
+            NotificationCenter.default.post(name: NSNotification.Name("RAMBAAN"), object: nil)
             _ = self.navigationController?.popViewController(animated: true)
         }
     }
@@ -72,23 +73,30 @@ extension BaseViewController
                 case .success(let value):
                     
                     let json = JSON(value)
-                    
                     if json["routes"].array?.isEmpty == false
                     {
-                        let path = GMSPath.init(fromEncodedPath: json["routes"][0]["overview_polyline"]["points"].string!)
-                        
-                        let singleLine = GMSPolyline.init(path: path)
-                        
-                        singleLine.strokeWidth = 4
-                        singleLine.strokeColor = UIColor.blue
-                        singleLine.map = self.googleMap
+                        var selectedRoute = json["routes"][0]
+                        let routeOverviewPolyline = selectedRoute["overview_polyline"]
+                        let points = routeOverviewPolyline["points"].string
+                        let path = GMSPath.init(fromEncodedPath: points!)
+                        let polyline = GMSPolyline.init(path: path)
+                        polyline.strokeColor = UIColor.blue
+                        polyline.strokeWidth = 4
+
+                        polyline.map = self.googleMap
+                        if let long = selectedRoute["legs"][0]["start_location"]["lng"].rawValue as? Double {
+                            if let lat = selectedRoute["legs"][0]["start_location"]["lat"].rawValue as? Double {
+                                self.googleMap.moveCamera(GMSCameraUpdate.setTarget(CLLocationCoordinate2D(latitude: lat, longitude: long), zoom: 11))
+                            }
+                        }
                     }
-                
+                    
                 case .failure(_):
                     print("Error in create polyline 1")
                 }
         }
     }
+    
     func CreatePreBookingPolyline1()
     {
         requestManual("https://maps.googleapis.com/maps/api/directions/json?origin=\(Double(InstantBookingTask.latLongAll["pickLat"]!)!),\(Double(InstantBookingTask.latLongAll["pickLong"]!)!)&destination=\(Double(InstantBookingTask.latLongAll["dropLat"]!)!),\(Double(InstantBookingTask.latLongAll["dropLong"]!)!)&key=\(Global.googleDirectionApiKey)".replacingOccurrences(of: " ", with: "")).responseJSON
@@ -102,13 +110,20 @@ extension BaseViewController
                     
                     if json["routes"].array?.isEmpty == false
                     {
-                        let path = GMSPath.init(fromEncodedPath: json["routes"][0]["overview_polyline"]["points"].string!)
+                        var selectedRoute = json["routes"][0]
+                        let routeOverviewPolyline = selectedRoute["overview_polyline"]
+                        let points = routeOverviewPolyline["points"].string
+                        let path = GMSPath.init(fromEncodedPath: points!)
+                        let polyline = GMSPolyline.init(path: path)
+                        polyline.strokeColor = UIColor.blue
+                        polyline.strokeWidth = 4
                         
-                        let singleLine = GMSPolyline.init(path: path)
-                        
-                        singleLine.strokeWidth = 4
-                        singleLine.strokeColor = UIColor.blue
-                        singleLine.map = self.googleMap
+                        polyline.map = self.googleMap
+                        if let long = selectedRoute["legs"][0]["start_location"]["lng"].rawValue as? Double {
+                            if let lat = selectedRoute["legs"][0]["start_location"]["lat"].rawValue as? Double {
+                                self.googleMap.moveCamera(GMSCameraUpdate.setTarget(CLLocationCoordinate2D(latitude: lat, longitude: long), zoom: 11))
+                            }
+                        }
                     }
                     
                 case .failure(_):
@@ -116,5 +131,4 @@ extension BaseViewController
                 }
         }
     }
-
 }

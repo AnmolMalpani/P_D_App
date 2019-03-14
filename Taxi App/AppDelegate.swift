@@ -1,93 +1,244 @@
-//
+
 //  AppDelegate.swift
 //  Taxi App
-//
 //  Created by User on 08/12/16.
 //  Copyright © 2016 User. All rights reserved.
-//
 
 import UIKit
 import CoreData
+import GooglePlaces
+import GooglePlacePicker
+import GoogleMaps
+import UserNotifications
+import CoreLocation
+import IQKeyboardManagerSwift
+
+var locationManager:CLLocationManager?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    
+    @available(iOS 10.0, *)
+    @available(iOS 10.0, *)
+    @available(iOS 10.0, *)
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
+    {
+        locationManager=CLLocationManager()
+        locationManager?.requestAlwaysAuthorization()
+        URLCache.shared = {
+            URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
+        }()
+        
+        URLCache.shared.removeAllCachedResponses()
+        
+        // MARK: Google Maps
+        
+        GMSPlacesClient.provideAPIKey(Global.googleMapApiKey)
+        GMSServices.provideAPIKey(Global.googleMapApiKey)
+        
+        ReachabilityManager.shared.startMonitoring()
+        
+        IQKeyboardManager.shared.enable = true
+        //MARK: Disable Sleep Mode
+        
+        UIApplication.shared.isIdleTimerDisabled = true
+        
+        // MARK: Local Notification.
+        
+        UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
+        
         return true
     }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    
+    func applicationWillResignActive(_ application: UIApplication)
+    {
     }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    func applicationDidEnterBackground(_ application: UIApplication)
+    {
     }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    func applicationWillEnterForeground(_ application: UIApplication)
+    {
     }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    func applicationDidBecomeActive(_ application: UIApplication)
+    {
     }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        // Saves changes in the application's managed object context before the application terminates.
-        self.saveContext()
-    }
-
-    // MARK: - Core Data stack
-
-    lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
-        let container = NSPersistentContainer(name: "Taxi_App")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+    func applicationWillTerminate(_ application: UIApplication)
+    {
+        let parameters =
+            [
+                "status": "0",
+                "driver_id" : Global.driverCurrentId
+        ]
+        upload(multipartFormData: { (multipartFormData) in
+            
+            for (key, value) in parameters
+            {
+                multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
             }
-        })
-        return container
-    }()
-
-    // MARK: - Core Data Saving support
-
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }, to:"\(Global.DomainName)/driver/driverbreak".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+        { (result) in
+            switch result {
+            case .success(let upload, _, _):
+                upload.responseJSON { response in
+                }
+            case .failure(_):
+                print("Error in login")
             }
         }
+        
+        sleep(15)
     }
-
 }
 
+//mark - local notification   CLOSE
+
+class LocalNotification: NSObject, UNUserNotificationCenterDelegate {
+    
+    class func registerForLocalNotification(on application:UIApplication) {
+        if (UIApplication.instancesRespond(to: #selector(UIApplication.registerUserNotificationSettings(_:)))) {
+            let notificationCategory:UIMutableUserNotificationCategory = UIMutableUserNotificationCategory()
+            notificationCategory.identifier = "NOTIFICATION_CATEGORY"
+            
+            //registerting for the notification.
+            application.registerUserNotificationSettings(UIUserNotificationSettings(types:[.sound, .alert, .badge], categories: nil))
+        }
+    }
+    class func dispatchlocalNotification(with title: String, body: String, userInfo: [AnyHashable: Any]? = nil, at date:Date) {
+        
+        if #available(iOS 10.0, *) {
+            
+            let center = UNUserNotificationCenter.current()
+            let content = UNMutableNotificationContent()
+            content.title = title
+            content.body = body
+            content.categoryIdentifier = "Fechou"
+            content.sound = UNNotificationSound(named:convertToUNNotificationSoundName("carina.mp3"))
+            let comp    = Calendar.current.dateComponents([.hour, .minute], from: date)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: comp, repeats: true)
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            
+            center.add(request)
+        }
+        else
+        {
+            let notification = UILocalNotification()
+            notification.fireDate = date
+            notification.alertTitle = title
+            notification.alertBody = body
+            
+            if let info = userInfo {
+                notification.userInfo = info
+            }
+            
+            notification.soundName = "carina.mp3"
+            UIApplication.shared.scheduleLocalNotification(notification)
+        }
+        print("WILL DISPATCH LOCAL NOTIFICATION AT ", date)
+    }
+}
+
+extension Date {
+    func addedBy(seconds:Int) -> Date {
+        return Calendar.current.date(byAdding: .second, value: seconds, to: self)!
+    }
+}
+
+//mark - notification AS NEW
+
+extension ViewController: UNUserNotificationCenterDelegate {
+    
+    //for displaying notification when app is in foreground
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        //If you don't want to show notification when app is open, do something here else and make a return here.
+        //Even you you don't implement this delegate method, you will not see the notification on the specified controller. So, you have to implement this delegate and make sure the below line execute. i.e. completionHandler.
+        
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+    // For handling tap and user actions
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        switch response.actionIdentifier {
+        case "action1":
+            print("Action First Tapped")
+        case "action2":
+            print("Action Second Tapped")
+        default:
+            break
+        }
+        completionHandler()
+    }
+}
+
+@available(iOS 10.0, *)
+func scheduleNotifications() {
+    
+    let content = UNMutableNotificationContent()
+    let requestIdentifier = "rajanNotification"
+    
+    content.badge = 1
+    content.title = "Presto Driver"
+    content.subtitle = "You have a ride request"
+    //    content.body = "Hello body"
+    content.categoryIdentifier = "actionCategory"
+    content.sound = UNNotificationSound(named: convertToUNNotificationSoundName("carin.mp3"))
+    
+    // If you want to attach any image to show in local notification
+    
+    let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 0.1, repeats: false)
+    
+    let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
+    UNUserNotificationCenter.current().add(request) { (error:Error?) in
+        
+        if error != nil {
+            print(error?.localizedDescription)
+        }
+        print("Notification Register Success")
+    }
+}
+
+func registerForRichNotifications() {
+    
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound]) { (granted:Bool, error:Error?) in
+        if error != nil {
+            print(error?.localizedDescription)
+        }
+        if granted {
+            print("Permission granted")
+        } else {
+            print("Permission not granted")
+        }
+    }
+    
+    //actions defination
+    let action1 = UNNotificationAction(identifier: "action1", title: "Action First", options: [.foreground])
+    let action2 = UNNotificationAction(identifier: "action2", title: "Action Second", options: [.foreground])
+    
+    let category = UNNotificationCategory(identifier: "actionCategory", actions: [action1,action2], intentIdentifiers: [], options: [])
+    
+    UNUserNotificationCenter.current().setNotificationCategories([category])
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print(response.notification.request.content.userInfo)
+        completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .badge, .sound])
+    }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUNNotificationSoundName(_ input: String) -> UNNotificationSoundName {
+    return UNNotificationSoundName(rawValue: input)
+}

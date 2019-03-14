@@ -14,7 +14,7 @@ var isFinishedBooking = false
 
 struct Global
 {
-    static var DomainName = "http://prestodispatcher.com/taxi/api/index.php"
+    static var DomainName = "https://prestoridebooking.com/index.php"
     static var googleMapApiKey = "AIzaSyBJdHv9pzv2U1QchOdfRHlIHpQ3gjAEnqE"
     static var googleDirectionApiKey = "AIzaSyA6H-HEC4I8TEuROKmW6F9y7mVIlaab4HQ"
 

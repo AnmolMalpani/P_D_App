@@ -320,27 +320,31 @@ class ReachabilityManager: NSObject
         }
     }
     
-    func reachabilityChanged(notification: Notification)
+    @objc func reachabilityChanged(notification: Notification)
     {
         let reachability = notification.object as! Reachability
         switch reachability.currentReachabilityStatus {
         case .notReachable:
 
-            createInternetView(CreateView: true)
-            
+            DispatchQueue.main.async {
+                self.createInternetView(CreateView: true)
+            }
             print("Offline")
             
         case .reachableViaWiFi:
           
             print("Online")
             
-            createInternetView(CreateView: false)
-            
+            DispatchQueue.main.async {
+                self.createInternetView(CreateView: false)
+            }
         case .reachableViaWWAN:
             
             print("Online")
 
-            createInternetView(CreateView: false)
+            DispatchQueue.main.async {
+                self.createInternetView(CreateView: false)
+            }
         }
     }
  
@@ -355,7 +359,7 @@ class ReachabilityManager: NSObject
                 {
                     if CreateView == true
                     {
-                        let blur : UIVisualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
+                        let blur : UIVisualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.light))
                         blur.tag = 787
                         blur.frame = mainVC.frame
                         

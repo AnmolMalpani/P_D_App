@@ -17,7 +17,7 @@ extension BaseViewController
         CheckPreBooking.preBookingTimer = Timer.scheduledTimer(timeInterval: TimeInterval(5), target: self, selector: #selector(checkMain), userInfo: nil, repeats: true)
     }
     
-    func checkMain()
+    @objc func checkMain()
     {
         CheckPreBooking.checkBooking(completionHandler: {
             ( status , id ) in

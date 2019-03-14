@@ -8,28 +8,64 @@
 
 import UIKit
 
-class Profile: UIViewController {
+class Profile: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate
+{
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+// MARK: Defaults Funtions :-
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        extensionDidLoad()
     }
-    */
-
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+    }
+    
+// END.
+ 
+    
+    
+// Extension Working :-
+    
+    func extensionDidLoad()
+    {
+     self.profileDidLoad()
+    }
+    
+    
+    // Personal info :-
+    
+    let picker = UIImagePickerController()
+    
+    @IBOutlet weak var imageviewUserProfile: roundImageProfile!
+    
+    @IBOutlet var textFieldPersonalInfo: [UITextField]!
+    
+    @IBAction func cameraButton(_ sender: AnyObject)
+    {
+        loadFromLibrary()
+    }
+    
+    @IBOutlet weak var buttonUpdate: UIButton!
+    
+    @IBAction func buttonUpdate(_ sender: AnyObject)
+    {
+        self.buttonUpdateFunc()
+    }
+  
+    @IBAction func buttonVehicleUpdate(_ sender: AnyObject)
+    {
+        self.openViewControllerBasedOnIdentifier("vehicleUpdate")
+    }
+    
 }

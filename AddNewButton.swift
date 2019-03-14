@@ -30,7 +30,7 @@ extension  BaseViewController
         ui.tag = 98700
         ui.backgroundColor = UIColor.blue
         ui.setTitle("END TRIP", for: .normal)
-        ui.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightSemibold)
+        ui.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold)
         
         self.view.addSubview(ui)
         
@@ -46,7 +46,7 @@ extension  BaseViewController
     }
     
     
-    func EndTripButtonWorking(sender : UIButton)
+    @objc func EndTripButtonWorking(sender : UIButton)
     {
         if let EndTripButton = view.viewWithTag(98700)
         {

@@ -30,15 +30,15 @@ var  optionMasseges =
     
     func navigationButton()
     {
-        let btnShowMenu = UIButton(type: UIButtonType.system)
-        btnShowMenu.setImage(#imageLiteral(resourceName: "send"), for: UIControlState())
+        let btnShowMenu = UIButton(type: UIButton.ButtonType.system)
+        btnShowMenu.setImage(#imageLiteral(resourceName: "send"), for: UIControl.State())
         btnShowMenu.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
-        btnShowMenu.addTarget(self, action: #selector(sendMessage), for: UIControlEvents.touchUpInside)
+        btnShowMenu.addTarget(self, action: #selector(sendMessage), for: UIControl.Event.touchUpInside)
         let customBarItem = UIBarButtonItem(customView: btnShowMenu)
         self.navigationItem.rightBarButtonItem = customBarItem;
     }
     
-    func sendMessage()
+    @objc func sendMessage()
     {
         if textMessageSent.text == "" || textMessageSent.text == " "
         {

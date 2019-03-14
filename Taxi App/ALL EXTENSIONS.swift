@@ -16,7 +16,7 @@ extension UIViewController
         Timer.scheduledTimer(timeInterval: TimeInterval(1.5), target: self, selector: #selector(AlertpopUpDismiss(_:)), userInfo: nil, repeats: false)
     }
     
-    func AlertpopUpDismiss(_ sender : UIButton)
+    @objc func AlertpopUpDismiss(_ sender : UIButton)
     {
         alertPopUp.dismiss(animated: true, completion: nil)
     }
@@ -51,7 +51,7 @@ extension UIViewController
         self.present(alertController, animated: true, completion: nil)
     }
     
-        func openViewControllerBasedOnIdentifier(_ strIdentifier:String){
+    func openViewControllerBasedOnIdentifier(_ strIdentifier:String){
         let destViewController : UIViewController = self.storyboard!.instantiateViewController(withIdentifier: strIdentifier)
         
         let topViewController : UIViewController = self.navigationController!.topViewController!
@@ -92,31 +92,31 @@ extension UIViewController
         view.addGestureRecognizer(tap)
     }
     
-    func dismissKeyboardView() {
+    @objc func dismissKeyboardView() {
         view.endEditing(true)
     }
     
     // Universal Activity indicator :-
     
-//    func Spinner(Task : Int , tag : Int)
-//    {
-//        if Task == 1
-//        {
-//            FTProgressIndicator.dismiss()
-//            
-//            FTProgressIndicator.showProgressWithmessage("Please wait...!!!", userInteractionEnable: false)
-//            
-//        }
-//        else if Task == 2
-//        {
-//            FTProgressIndicator.dismiss()
-//            
-//        }
-//    }
+    //    func Spinner(Task : Int , tag : Int)
+    //    {
+    //        if Task == 1
+    //        {
+    //            FTProgressIndicator.dismiss()
+    //            
+    //            FTProgressIndicator.showProgressWithmessage("Please wait...!!!", userInteractionEnable: false)
+    //            
+    //        }
+    //        else if Task == 2
+    //        {
+    //            FTProgressIndicator.dismiss()
+    //            
+    //        }
+    //    }
     
     // Reachebility Task :-
     
-    func networkStatusChanged(_ notification: Notification)
+    @objc func networkStatusChanged(_ notification: Notification)
     {
         let _ = (notification as NSNotification).userInfo
     }
@@ -147,7 +147,7 @@ extension UIViewController
         case .online(.wiFi):
             
             task = 2
-                      }
+        }
         return task
     }
     

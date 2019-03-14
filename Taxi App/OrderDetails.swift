@@ -22,7 +22,7 @@ class OrderDetails: UITableViewController {
         self.navigationItem.title = "Order Details"
         
         tableView.estimatedRowHeight = 50
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
 
         self.getData()
     }

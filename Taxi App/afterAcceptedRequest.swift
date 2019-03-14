@@ -7,10 +7,11 @@
 //
 
 import Foundation
-import GoogleMaps
 import UIKit
-import MapKit
 import CoreLocation
+import GoogleMaps
+import GooglePlaces
+import MapKit
 
 extension BaseViewController
 {
@@ -21,12 +22,12 @@ extension BaseViewController
         afterAcceptedTask.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(showPassengerOnMap), userInfo: nil, repeats: true)
     }
     
-    func showPassengerOnMap()
+    @objc func showPassengerOnMap()
     {
         let parameters =
             [
                 "formated_id": mapTask.formattedID
-            ]
+        ]
         
         upload(multipartFormData: { (multipartFormData) in
             
@@ -34,7 +35,7 @@ extension BaseViewController
             {
                 multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
             }
-            }, to:"\(Global.DomainName)/driver/get_bookingdetails".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+        }, to:"\(Global.DomainName)/driver/get_bookingdetails".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
         { (result) in
             switch result {
             case .success(let upload, _, _):
@@ -55,18 +56,18 @@ extension BaseViewController
                                 "FirstName" : String(describing : json["data"][0]["first_name"]),
                                 "LastName" : String(describing : json["data"][0]["last_name"]),
                                 "Phone" : String(describing : json["data"][0]["phone"])
-                           ]
+                        ]
                         afterAcceptedTask.bookingId = String(describing : json["data"][0]["bid"])
                         afterAcceptedTask.phone = String(describing : json["data"][0]["phone"])
-                      
+                        
                         self.checkingCancellation()
                         afterAcceptedTask.timer.invalidate()
-//                        self.Spinner(Task: 2, tag: 78544)
+                        //                        self.Spinner(Task: 2, tag: 78544)
                         self.CreatePolyline1()
                         self.createUIforCalling()
                     }
                 }
-                case.failure(_):
+            case.failure(_):
                 print("Error in Getting Booking details")
             }
         }
@@ -77,11 +78,11 @@ extension BaseViewController
         buttonStartBreakOutlet.isHidden = true
         
         let ui = UIButton()
-        ui.addTarget(self, action: #selector(call), for: UIControlEvents.touchUpInside)
+        ui.addTarget(self, action: #selector(call), for: UIControl.Event.touchUpInside)
         ui.tag = 98600
         ui.backgroundColor = UIColor.blue
         ui.setTitle("Call Passenger", for: .normal)
-        ui.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightSemibold)
+        ui.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold)
         
         view.addSubview(ui)
         
@@ -96,11 +97,11 @@ extension BaseViewController
         view.addConstraint(NSLayoutConstraint(item: ui, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: 0))
         
         let ui2 = UIButton()
-        ui2.addTarget(self, action: #selector(rideNowAction), for: UIControlEvents.touchUpInside)
+        ui2.addTarget(self, action: #selector(rideNowAction), for: UIControl.Event.touchUpInside)
         ui2.tag = 98601
         ui2.backgroundColor = UIColor.blue
         ui2.setTitle("Start Ride", for: .normal)
-        ui2.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightSemibold)
+        ui2.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold)
         
         view.addSubview(ui2)
         
@@ -121,7 +122,7 @@ extension BaseViewController
         afterAcceptedTask.isBeforeRideComplete = true
     }
     
-    func call()
+    @objc func call()
     {
         var Phone : String?
         
@@ -134,24 +135,34 @@ extension BaseViewController
         {
             Phone = InstantBookingTask.phone
         }
-       else
+        else
             
-       {
-           Phone = afterAcceptedTask.phone
+        {
+            Phone = afterAcceptedTask.phone
         }
-
-       // Phone=afterAcceptedTask.phone
-        Phone =   Phone!
+        
+        // Phone=afterAcceptedTask.phone
+        guard let phone = Phone else { return }
+//        let phonee = "+91-\(phone)"
+        
+        if let url = URL(string: "tel://\(phone)"), UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+        
         
         // call passenger menu....
-        if let url = URL(string : "tel://\(Phone ?? "")")
-        {
-            UIApplication.shared.openURL(url)
-           // print("Calling Passenger")
-        }
+        //        if let url = URL(string : "tel://\(phonee)")
+        //        {
+        //            UIApplication.shared.openURL(url)
+        //            // print("Calling Passenger")
+        //        }
     }
     
-    func rideNowAction()
+    @objc func rideNowAction()
     {
         RideNowClass.RideNow()
         self.addNewButton()
@@ -163,15 +174,15 @@ extension BaseViewController
         if addButton
         {
             let item2 = UIBarButtonItem(title: "Navigate", style: .plain, target: self, action: #selector(navigate))
-                  self.navigationItem.setRightBarButtonItems([item2], animated: true)
+            self.navigationItem.setRightBarButtonItems([item2], animated: true)
         }
         else
         {
             self.navigationItem.setRightBarButton(nil, animated: false)
         }
     }
-        func navigate()
-        {
+    @objc func navigate()
+    {
         var lat = Double()
         var long = Double()
         
@@ -180,7 +191,7 @@ extension BaseViewController
         if afterAcceptedTask.isBeforeRideComplete
         {
             lat = afterAcceptedTask.passengerPickLocaion.position.latitude
-           long = afterAcceptedTask.passengerPickLocaion.position.longitude
+            long = afterAcceptedTask.passengerPickLocaion.position.longitude
             str = "Passenger PickUp Location"
         }
         else
@@ -191,82 +202,94 @@ extension BaseViewController
         }
         
         let coordinates = CLLocationCoordinate2DMake(lat,long)
-        
         let place = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-        
         let mapItem = MKMapItem (placemark: place)
-        
         mapItem.name = str
-        
         let options = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving , MKLaunchOptionsShowsTrafficKey : true ] as [String  : Any]
-        
         MKMapItem.openMaps(with: [mapItem], launchOptions: options)
-        }
-
+    }
+    
     func CreatePolyline1()
     {
-          requestManual("https://maps.googleapis.com/maps/api/directions/json?origin=\(mapTask.driverCurrentLocation.position.latitude),\(mapTask.driverCurrentLocation.position.longitude)&destination=\(afterAcceptedTask.customerPickLatlongName["P_lat"]!),\(afterAcceptedTask.customerPickLatlongName["P_lng"]!)&key=\(Global.googleDirectionApiKey)".replacingOccurrences(of: " ", with: "")).responseJSON
-            { response in
+        let directionsURLString = String(format: "https://maps.googleapis.com/maps/api/directions/json?origin=\(mapTask.driverCurrentLocation.position.latitude),\(mapTask.driverCurrentLocation.position.longitude)&destination=\(afterAcceptedTask.customerPickLatlongName["P_lat"]!),\(afterAcceptedTask.customerPickLatlongName["P_lng"]!)&key=\(Global.googleDirectionApiKey)").replacingOccurrences(of: " ", with: "")
+        
+        let url = URL(string: directionsURLString)
+        URLSession.shared.dataTask(with:url!) { (data, response, error) in
+            DispatchQueue.main.async {
                 
-                switch response.result
-                {
-                case .success(let value):
-                    
-                    let json = JSON(value)
-                    
-                    if json["routes"].array?.isEmpty == false
-                    {
-                        let path = GMSPath.init(fromEncodedPath: json["routes"][0]["overview_polyline"]["points"].string!)
-                        
-                        let singleLine = GMSPolyline.init(path: path)
-                        
-                        singleLine.strokeWidth = 4
-                        singleLine.strokeColor = UIColor.blue
-                        singleLine.map = self.googleMap
-                        
-                        self.CreatePolyline2()
-                        
-                        afterAcceptedTask.passengerPickLocaion.position = CLLocationCoordinate2D(latitude: Double(afterAcceptedTask.customerPickLatlongName["P_lat"]!)!, longitude: Double(afterAcceptedTask.customerPickLatlongName["P_lng"]!)!)
-                        afterAcceptedTask.passengerPickLocaion.title = "Passenger pickUp Location"
-                        afterAcceptedTask.passengerPickLocaion.icon = #imageLiteral(resourceName: "black icon")
-                        afterAcceptedTask.passengerPickLocaion.snippet = afterAcceptedTask.customerPickLatlongName["P_name"]!
-                        afterAcceptedTask.passengerPickLocaion.map = self.googleMap
+                if error != nil {
+                    print(error ?? "error")
+                } else {
+                    do {
+                        let parsedData = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                        let status = parsedData["status"] as! String
+                        if status == "OK" {
+                            var selectedRoute = (parsedData["routes"] as! Array<Dictionary<String, AnyObject>>)[0]
+                            
+                            if let routeOverviewPolyline = selectedRoute["overview_polyline"] as? Dictionary<String,AnyObject> {
+                                if let points = routeOverviewPolyline["points"] as? String {
+                                    let path = GMSPath.init(fromEncodedPath: points)
+                                    let polyline = GMSPolyline.init(path: path)
+                                    polyline.strokeColor = UIColor.blue
+                                    polyline.strokeWidth = 4
+                                    polyline.map = self.googleMap
+                                }
+                            }
+                            
+                            self.CreatePolyline2()
+                            afterAcceptedTask.passengerPickLocaion.position = CLLocationCoordinate2D(latitude: Double(afterAcceptedTask.customerPickLatlongName["P_lat"]!)!, longitude: Double(afterAcceptedTask.customerPickLatlongName["P_lng"]!)!)
+                            afterAcceptedTask.passengerPickLocaion.title = "Passenger pickUp Location"
+                            afterAcceptedTask.passengerPickLocaion.icon = #imageLiteral(resourceName: "black icon")
+                            afterAcceptedTask.passengerPickLocaion.snippet = afterAcceptedTask.customerPickLatlongName["P_name"]!
+                            afterAcceptedTask.passengerPickLocaion.map = self.googleMap
+                        }
+                        print(parsedData)
+                    } catch let error as NSError {
+                        print(error)
                     }
-                    case .failure(_):
-                    print("Error in getting estimate cost")
                 }
-        }
+            }
+            }.resume()
     }
     
     fileprivate func CreatePolyline2()
     {
-        requestManual("https://maps.googleapis.com/maps/api/directions/json?origin=\(afterAcceptedTask.customerPickLatlongName["P_lat"]!),\(afterAcceptedTask.customerPickLatlongName["P_lng"]!)&destination=\(afterAcceptedTask.customerPickLatlongName["D_lat"]!),\(afterAcceptedTask.customerPickLatlongName["D_lng"]!)&key=\(Global.googleDirectionApiKey)".replacingOccurrences(of: " ", with: ""), method: .get).responseJSON
-            { response in
+        let directionsURLString = String(format: "https://maps.googleapis.com/maps/api/directions/json?origin=\(afterAcceptedTask.customerPickLatlongName["P_lat"]!),\(afterAcceptedTask.customerPickLatlongName["P_lng"]!)&destination=\(afterAcceptedTask.customerPickLatlongName["D_lat"]!),\(afterAcceptedTask.customerPickLatlongName["D_lng"]!)&key=\(Global.googleDirectionApiKey)").replacingOccurrences(of: " ", with: "")
+        let url = URL(string: directionsURLString)
+        URLSession.shared.dataTask(with:url!) { (data, response, error) in
+            DispatchQueue.main.async {
                 
-                switch response.result
-                {
-                case .success(let value):
-                    
-                    let json = JSON(value)
-                    
-                    if json["routes"].array?.isEmpty == false
-                    {
-                        
-                        let path = GMSPath.init(fromEncodedPath: json["routes"][0]["overview_polyline"]["points"].string!)
-                
-                        let singleLine = GMSPolyline.init(path: path)
-                        singleLine.strokeWidth = 4
-                        singleLine.strokeColor = UIColor.red
-                        singleLine.map = self.googleMap
-                        afterAcceptedTask.passengerDropLocaion.position = CLLocationCoordinate2D(latitude: Double(afterAcceptedTask.customerPickLatlongName["D_lat"]!)!, longitude: Double(afterAcceptedTask.customerPickLatlongName["D_lng"]!)!)
-                        afterAcceptedTask.passengerDropLocaion.title = "Passenger dropOff Location"
-                        afterAcceptedTask.passengerDropLocaion.icon = #imageLiteral(resourceName: "green icon")
-                        afterAcceptedTask.passengerDropLocaion.snippet = afterAcceptedTask.customerPickLatlongName["D_name"]!
-                        afterAcceptedTask.passengerDropLocaion.map = self.googleMap
-                                  }
-                case .failure(_):
-                    print("Error in getting estimate cost")
+                if error != nil {
+                    print(error ?? "error")
+                } else {
+                    do {
+                        let parsedData = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                        let status = parsedData["status"] as! String
+                        if status == "OK" {
+                            var selectedRoute = (parsedData["routes"] as! Array<Dictionary<String, AnyObject>>)[0]
+                            
+                            if let routeOverviewPolyline = selectedRoute["overview_polyline"] as? Dictionary<String,AnyObject> {
+                                if let points = routeOverviewPolyline["points"] as? String {
+                                    let path = GMSPath.init(fromEncodedPath: points)
+                                    let polyline = GMSPolyline.init(path: path)
+                                    polyline.strokeColor = UIColor.blue
+                                    polyline.strokeWidth = 4
+                                    polyline.map = self.googleMap
+                                }
+                            }
+                            afterAcceptedTask.passengerDropLocaion.position = CLLocationCoordinate2D(latitude: Double(afterAcceptedTask.customerPickLatlongName["D_lat"]!)!, longitude: Double(afterAcceptedTask.customerPickLatlongName["D_lng"]!)!)
+                            afterAcceptedTask.passengerDropLocaion.title = "Passenger dropOff Location"
+                            afterAcceptedTask.passengerDropLocaion.icon = #imageLiteral(resourceName: "green icon")
+                            afterAcceptedTask.passengerDropLocaion.snippet = afterAcceptedTask.customerPickLatlongName["D_name"]!
+                            afterAcceptedTask.passengerDropLocaion.map = self.googleMap
+                        }
+                        print(parsedData)
+                    } catch let error as NSError {
+                        print(error)
+                    }
                 }
-        }
+            }
+            }.resume()
     }
+    
 }
